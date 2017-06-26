@@ -3,8 +3,12 @@ package main;
 public class Mod {
 
     public static int mod(int a, int b) {
-
-        int sign = a / Math.abs(a) * b / Math.abs(b);
+        int sign = 1;
+        if (a == 0)
+            return 0;
+        else {
+            sign = a / Math.abs(a) * b / Math.abs(b);
+        }
 
         int result = a;
 
