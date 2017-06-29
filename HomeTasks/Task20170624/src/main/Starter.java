@@ -6,14 +6,9 @@ import org.junit.runner.Result;
 
 public class Starter {
     public static void main(String[] args) {
-        int a = Integer.MAX_VALUE % (-Integer.MAX_VALUE);
-        int b = Integer.MAX_VALUE % (-Integer.MIN_VALUE);
-        int c = Integer.MIN_VALUE % (-Integer.MAX_VALUE);
-        int d = Integer.MIN_VALUE % (-Integer.MIN_VALUE);
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(d);
+        IsFibonacci.fibonacci(30);
+
+
 
 //        JUnitCore runner = new JUnitCore();
 //        Result result = runner.run(Sign.class);
