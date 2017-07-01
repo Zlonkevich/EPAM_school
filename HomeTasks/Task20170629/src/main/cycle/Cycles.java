@@ -16,36 +16,44 @@ public class Cycles {
         this.partLength = partLength;
     }
 
+
+    /*
+    метод на последующих кругах внешнего цикла все также продолжает добавлять в коллекцию
+    повторяющиеся последовательности, не смотря на то, что они уже были учтены, как повторяющиеся!
+    */
+
     public void sequencing() {
         char[] sec = sequence.toCharArray();   //массив для секвенации
         StringBuilder sb;
 
         for (int i = 0; i < sequence.length() - partLength; i++) {
 
-
             label1:
             for (int j = i + 1; j < sequence.length() - partLength + 1; j++) {
+
                 sb = new StringBuilder();
 
                 for (int k = j; k < j + partLength; k++) {
+
                     if (sec[k] != sec[k - j + i]) {
                         continue label1;
                     }
                     sb.append(sec[k]);
                 }
-//                System.out.println(sb);
                 putIntoMap(sb);
-
             }
         }
 
-//        System.out.println(repeatedSortMap);
         for (Map.Entry<String, Integer> entry : repeatedSortMap.entrySet()) {
             System.out.println("Sequence: " + entry.getKey() + " Repeat: " + entry.getValue());
         }
     }
 
-    
+    private void checkForSameSequence(StringBuilder sb) {
+        if (!repeatedSortMap.containsKey(sb.toString())) {
+            repeatedSortMap.put(sb.toString(), 1);
+        }
+    }
 
 
     private void putIntoMap(StringBuilder sb) {
