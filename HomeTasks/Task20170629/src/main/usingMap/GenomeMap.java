@@ -8,7 +8,7 @@ public class GenomeMap {
     private static final byte[] BASIC = {'A', 'C', 'G', 'T'};
     private TreeMap<String, Integer> repeatedSortMap = new TreeMap<>();
 
-    private ArrayList<TreeMap<String, Integer>> listOfMaps = new ArrayList<>();
+//    private ArrayList<TreeMap<String, Integer>> listOfMaps = new ArrayList<>();
 
 
     GenomeMap(int length, int partLength) {
