@@ -8,19 +8,12 @@ public class GenomeMap {
     private static final byte[] BASIC = {'A', 'C', 'G', 'T'};
     private TreeMap<String, Integer> repeatedSortMap = new TreeMap<>();
 
-//    private ArrayList<TreeMap<String, Integer>> listOfMaps = new ArrayList<>();
-
 
     GenomeMap(int length, int partLength) {
         sequence = generateSequence(length);
         this.partLength = partLength;
     }
 
-
-    /*
-    метод на последующих кругах внешнего цикла все также продолжает добавлять в коллекцию
-    повторяющиеся последовательности, не смотря на то, что они уже были учтены, как повторяющиеся!
-    */
 
     public void sequencing() {
         char[] sec = sequence.toCharArray();   //массив для секвенации
@@ -34,40 +27,14 @@ public class GenomeMap {
                 }
                 putIntoMap(sb);
             }
-//            putIntoListOfMaps(repeatedSortMap);
 
         System.out.println("");
-
 
         for (Map.Entry<String, Integer> entry : repeatedSortMap.entrySet()) {
             System.out.println(entry.getKey() + " repeat " + entry.getValue() + " times");
         }
 
     }
-
-    /*
-    private TreeMap<String, Integer> mergeMaps() {
-        TreeMap<String, Integer> answer = new TreeMap<>();
-
-        for (Iterator<TreeMap<String, Integer>> it = listOfMaps.iterator(); it.hasNext(); ) {
-            TreeMap<String, Integer> temp = it.next();
-
-            for (Map.Entry<String, Integer> entry : temp.entrySet()) {
-
-                if (!answer.entrySet().contains(entry.getKey())) {
-                    answer.put(entry.getKey(), entry.getValue());
-                } else {
-                }
-            }
-        }
-        return answer;
-
-    }
-
-    private void putIntoListOfMaps(TreeMap<String, Integer> repeatedSortMap) {
-        listOfMaps.add(repeatedSortMap);
-    }
-    */
 
     private void putIntoMap(StringBuilder sb) {
         if (!repeatedSortMap.containsKey(sb.toString())) {
