@@ -12,7 +12,7 @@ public class Cycles {
     private TreeMap<String, Integer> repeatedSortMap = new TreeMap<>();
 
     Cycles(int length, int partLength) {
-        sequence = getRandom(length);
+        sequence = generateSequence(length);
         this.partLength = partLength;
     }
 
@@ -65,7 +65,7 @@ public class Cycles {
     }
 
 
-    private String getRandom(int length) {
+    private String generateSequence(int length) {
         Random rnd = new Random();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
